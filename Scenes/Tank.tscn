@@ -1,0 +1,471 @@
+[gd_scene load_steps=52 format=3 uid="uid://crrcooblix8tm"]
+
+[ext_resource type="Script" path="res://Scripts/TankController.gd" id="1_mube4"]
+[ext_resource type="Texture2D" uid="uid://d2kxbk0msrlu2" path="res://Art/Tank1/TankWheel.png" id="2_ml666"]
+[ext_resource type="Texture2D" uid="uid://2ktv51k6sg0c" path="res://Art/Tank1/TankCannonSpriteSheet.png" id="2_p0xo5"]
+[ext_resource type="Script" path="res://Scripts/TankCannon.gd" id="3_os40f"]
+[ext_resource type="Texture2D" uid="uid://c4ejgbb6s73sn" path="res://Art/Tank1/Tank1TurretInternalSpriteSheet.png" id="4_60a33"]
+[ext_resource type="Texture2D" uid="uid://dv5kxaaifnxps" path="res://Art/Tank1/Tank1TurretSpriteSheet.png" id="5_drmks"]
+[ext_resource type="Texture2D" uid="uid://dhooe2g4wm6m8" path="res://Art/Tank1/Tank1BodySpriteSheet.png" id="6_04rsh"]
+[ext_resource type="AudioStream" uid="uid://3gi3qht6kg3j" path="res://Sound/random.wav" id="7_0e4pb"]
+[ext_resource type="AudioStream" uid="uid://bckecwrcpsxs" path="res://Sound/EngineRunning.wav" id="8_hbs2t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m1pij"]
+atlas = ExtResource("2_p0xo5")
+region = Rect2(0, 0, 50, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_enom0"]
+atlas = ExtResource("2_p0xo5")
+region = Rect2(50, 0, 50, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ddufb"]
+atlas = ExtResource("2_p0xo5")
+region = Rect2(100, 0, 50, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_24fgh"]
+atlas = ExtResource("2_p0xo5")
+region = Rect2(150, 0, 50, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l0aoe"]
+atlas = ExtResource("2_p0xo5")
+region = Rect2(200, 0, 50, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_urbib"]
+atlas = ExtResource("2_p0xo5")
+region = Rect2(250, 0, 50, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aq4f1"]
+atlas = ExtResource("2_p0xo5")
+region = Rect2(300, 0, 50, 33)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_403nv"]
+atlas = ExtResource("2_p0xo5")
+region = Rect2(350, 0, 50, 33)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_aph17"]
+animations = [{
+"frames": [{
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_m1pij")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_enom0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ddufb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_24fgh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l0aoe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_urbib")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aq4f1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_403nv")
+}],
+"loop": true,
+"name": &"CannonIdle",
+"speed": 5.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_38tsn"]
+colors = PackedColorArray(0, 1, 0, 1, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_13acr"]
+gradient = SubResource("Gradient_38tsn")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ywam0"]
+atlas = ExtResource("4_60a33")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_crk4a"]
+atlas = ExtResource("4_60a33")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0880d"]
+atlas = ExtResource("4_60a33")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g3mio"]
+atlas = ExtResource("4_60a33")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xh6gy"]
+atlas = ExtResource("4_60a33")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wgoeb"]
+atlas = ExtResource("4_60a33")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kfls2"]
+atlas = ExtResource("4_60a33")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2y77c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ywam0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_crk4a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0880d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g3mio")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xh6gy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wgoeb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kfls2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ywam0")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ylldq"]
+atlas = ExtResource("5_drmks")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b3vsf"]
+atlas = ExtResource("5_drmks")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3gi4i"]
+atlas = ExtResource("5_drmks")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rgsoe"]
+atlas = ExtResource("5_drmks")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n22t7"]
+atlas = ExtResource("5_drmks")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jnci8"]
+atlas = ExtResource("5_drmks")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ystgw"]
+atlas = ExtResource("5_drmks")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ciqor"]
+atlas = ExtResource("5_drmks")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o30td"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ylldq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b3vsf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3gi4i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rgsoe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n22t7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jnci8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ystgw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ciqor")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ob543"]
+atlas = ExtResource("6_04rsh")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mxu17"]
+atlas = ExtResource("6_04rsh")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ged0"]
+atlas = ExtResource("6_04rsh")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vcdxq"]
+atlas = ExtResource("6_04rsh")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jgd03"]
+atlas = ExtResource("6_04rsh")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l4v7f"]
+atlas = ExtResource("6_04rsh")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0wehy"]
+atlas = ExtResource("6_04rsh")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_toj58"]
+atlas = ExtResource("6_04rsh")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rm2a5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ob543")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mxu17")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ged0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vcdxq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jgd03")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l4v7f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0wehy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_toj58")
+}],
+"loop": true,
+"name": &"Moving",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7dhj8"]
+size = Vector2(15.0001, 61)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yt2ec"]
+size = Vector2(19.5, 11.1111)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4a158"]
+size = Vector2(15, 61)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p87kt"]
+size = Vector2(48, 60)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o0yig"]
+
+[node name="PlayerTank" type="RigidBody2D"]
+collision_mask = 4
+input_pickable = true
+script = ExtResource("1_mube4")
+
+[node name="Cannon" type="Node2D" parent="." groups=["Player"]]
+position = Vector2(0, -13)
+
+[node name="CannonAnimatedSprite" type="AnimatedSprite2D" parent="Cannon" groups=["Player"]]
+z_index = -3
+texture_filter = 1
+position = Vector2(40, 0)
+sprite_frames = SubResource("SpriteFrames_aph17")
+animation = &"CannonIdle"
+
+[node name="CannonTip" type="Node2D" parent="Cannon" groups=["Player"]]
+position = Vector2(73, -1)
+
+[node name="Trajectory" type="Line2D" parent="Cannon/CannonTip"]
+texture_filter = 1
+texture_repeat = 2
+width = 5.0
+texture = SubResource("GradientTexture2D_13acr")
+texture_mode = 2
+antialiased = true
+script = ExtResource("3_os40f")
+
+[node name="TurretInternalAnimatedSprite" type="AnimatedSprite2D" parent="."]
+z_index = -2
+sprite_frames = SubResource("SpriteFrames_2y77c")
+
+[node name="TurretAnimatedSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_o30td")
+
+[node name="BodyAnimatedSprite" type="AnimatedSprite2D" parent="." groups=["Player"]]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_rm2a5")
+animation = &"Moving"
+frame_progress = 0.127822
+
+[node name="LeftInnerWall" type="CollisionShape2D" parent="." groups=["Player"]]
+position = Vector2(-32, -10)
+rotation = 3.14159
+shape = SubResource("RectangleShape2D_7dhj8")
+debug_color = Color(0, 0.576471, 0.815686, 0.431373)
+
+[node name="BottomInnerWall" type="CollisionShape2D" parent="."]
+position = Vector2(2.53518e-06, 30)
+rotation = 3.14159
+scale = Vector2(4, -1.8)
+shape = SubResource("RectangleShape2D_yt2ec")
+
+[node name="RightInnerWall" type="CollisionShape2D" parent="."]
+position = Vector2(32, -10)
+shape = SubResource("RectangleShape2D_4a158")
+
+[node name="WaterArea" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WaterArea"]
+position = Vector2(0, -10)
+shape = SubResource("RectangleShape2D_p87kt")
+debug_color = Color(0.917647, 0, 0.705882, 0.419608)
+
+[node name="FrontWheel" type="Node2D" parent="." groups=["Player"]]
+position = Vector2(40, 35)
+
+[node name="GrooveJoint2D" type="GrooveJoint2D" parent="FrontWheel" groups=["Player"]]
+node_a = NodePath("../..")
+node_b = NodePath("../TankWheel")
+length = 15.0
+initial_offset = 15.0
+
+[node name="DampedSpringJoint2D" type="DampedSpringJoint2D" parent="FrontWheel" groups=["Player"]]
+node_a = NodePath("../..")
+node_b = NodePath("../TankWheel")
+length = 15.0
+rest_length = 10.0
+stiffness = 45.0
+damping = 2.0
+
+[node name="TankWheel" type="RigidBody2D" parent="FrontWheel" groups=["Player"]]
+position = Vector2(0, 15)
+collision_mask = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="FrontWheel/TankWheel" groups=["Player"]]
+texture_filter = 1
+texture = ExtResource("2_ml666")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FrontWheel/TankWheel" groups=["Player"]]
+shape = SubResource("CircleShape2D_o0yig")
+
+[node name="RearWheel" type="Node2D" parent="." groups=["Player"]]
+position = Vector2(-40, 35)
+
+[node name="GrooveJoint2D" type="GrooveJoint2D" parent="RearWheel" groups=["Player"]]
+node_a = NodePath("../..")
+node_b = NodePath("../TankWheel")
+length = 15.0
+initial_offset = 15.0
+
+[node name="DampedSpringJoint2D" type="DampedSpringJoint2D" parent="RearWheel" groups=["Player"]]
+node_a = NodePath("../..")
+node_b = NodePath("../TankWheel")
+length = 15.0
+rest_length = 10.0
+stiffness = 45.0
+damping = 2.0
+
+[node name="TankWheel" type="RigidBody2D" parent="RearWheel" groups=["Player"]]
+position = Vector2(0, 15)
+collision_mask = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="RearWheel/TankWheel" groups=["Player"]]
+texture_filter = 1
+texture = ExtResource("2_ml666")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RearWheel/TankWheel" groups=["Player"]]
+shape = SubResource("CircleShape2D_o0yig")
+
+[node name="FrontMidWheel" type="Node2D" parent="." groups=["Player"]]
+position = Vector2(15, 35)
+
+[node name="GrooveJoint2D" type="GrooveJoint2D" parent="FrontMidWheel" groups=["Player"]]
+node_a = NodePath("../..")
+node_b = NodePath("../TankWheel")
+length = 15.0
+initial_offset = 15.0
+
+[node name="DampedSpringJoint2D" type="DampedSpringJoint2D" parent="FrontMidWheel" groups=["Player"]]
+node_a = NodePath("../..")
+node_b = NodePath("../TankWheel")
+length = 15.0
+rest_length = 10.0
+stiffness = 45.0
+damping = 2.0
+
+[node name="TankWheel" type="RigidBody2D" parent="FrontMidWheel" groups=["Player"]]
+position = Vector2(0, 15)
+collision_mask = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="FrontMidWheel/TankWheel" groups=["Player"]]
+texture_filter = 1
+texture = ExtResource("2_ml666")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FrontMidWheel/TankWheel" groups=["Player"]]
+shape = SubResource("CircleShape2D_o0yig")
+
+[node name="RearMidWheel" type="Node2D" parent="." groups=["Player"]]
+position = Vector2(-15, 35)
+
+[node name="GrooveJoint2D" type="GrooveJoint2D" parent="RearMidWheel" groups=["Player"]]
+node_a = NodePath("../..")
+node_b = NodePath("../TankWheel")
+length = 15.0
+initial_offset = 15.0
+
+[node name="DampedSpringJoint2D" type="DampedSpringJoint2D" parent="RearMidWheel" groups=["Player"]]
+node_a = NodePath("../..")
+node_b = NodePath("../TankWheel")
+length = 15.0
+rest_length = 10.0
+stiffness = 45.0
+damping = 2.0
+
+[node name="TankWheel" type="RigidBody2D" parent="RearMidWheel" groups=["Player"]]
+position = Vector2(0, 15)
+collision_mask = 4
+
+[node name="Sprite2D" type="Sprite2D" parent="RearMidWheel/TankWheel" groups=["Player"]]
+texture_filter = 1
+texture = ExtResource("2_ml666")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RearMidWheel/TankWheel" groups=["Player"]]
+shape = SubResource("CircleShape2D_o0yig")
+
+[node name="FireSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_0e4pb")
+pitch_scale = 2.0
+
+[node name="EngineSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("8_hbs2t")
+pitch_scale = 1.5
+
+[connection signal="body_shape_entered" from="WaterArea" to="." method="_on_water_area_body_shape_entered"]
+[connection signal="body_shape_exited" from="WaterArea" to="." method="_on_water_area_body_shape_exited"]

@@ -1,0 +1,70 @@
+[gd_scene load_steps=9 format=3 uid="uid://by643jbljhoq3"]
+
+[ext_resource type="Script" path="res://Scripts/Start.gd" id="1_dy0p8"]
+[ext_resource type="PackedScene" uid="uid://crrcooblix8tm" path="res://Scenes/Tank.tscn" id="2_h41kq"]
+[ext_resource type="Texture2D" uid="uid://d376jqhqxdnf1" path="res://Art/GrassPattern.png" id="4_1inul"]
+[ext_resource type="Script" path="res://CScripts/ParticleSimulation.cs" id="5_1g3hr"]
+[ext_resource type="Script" path="res://Scripts/Terrain.gd" id="6_xborp"]
+[ext_resource type="Texture2D" uid="uid://bexy6a0lfkg7u" path="res://Art/WaterParticle.png" id="6_xnkpf"]
+[ext_resource type="PackedScene" uid="uid://dktr54jae3pbo" path="res://Scenes/AITank.tscn" id="8_bbi2w"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g8oqo"]
+size = Vector2(1920, 88)
+
+[node name="Main" type="Node"]
+script = ExtResource("1_dy0p8")
+
+[node name="PlayerTank" parent="." node_paths=PackedStringArray("simulator") instance=ExtResource("2_h41kq")]
+position = Vector2(791, 316)
+collision_mask = 4
+simulator = NodePath("../Simulation")
+
+[node name="AITank" parent="." instance=ExtResource("8_bbi2w")]
+position = Vector2(994, 320)
+
+[node name="Tank1StartPosition" type="Marker2D" parent="."]
+position = Vector2(311, 821)
+
+[node name="Tank2StartPosition" type="Marker2D" parent="."]
+position = Vector2(1226, 878)
+
+[node name="Walls" type="CanvasLayer" parent="."]
+
+[node name="BottomWall" type="RigidBody2D" parent="Walls"]
+position = Vector2(960, 1036)
+disable_mode = 1
+collision_layer = 4
+collision_mask = 3
+freeze = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/BottomWall"]
+shape = SubResource("RectangleShape2D_g8oqo")
+debug_color = Color(0.831373, 0.392157, 0, 0.419608)
+
+[node name="Sprite2D" type="Sprite2D" parent="Walls/BottomWall"]
+texture_filter = 1
+texture_repeat = 2
+scale = Vector2(6.3267, 5.55036)
+texture = ExtResource("4_1inul")
+region_enabled = true
+region_rect = Rect2(-128, 9, 317, 16)
+
+[node name="DestructableTerrain" type="Node2D" parent="." node_paths=PackedStringArray("polygonList")]
+script = ExtResource("6_xborp")
+polygonList = [NodePath("Polygon2D")]
+
+[node name="Polygon2D" type="Polygon2D" parent="DestructableTerrain"]
+position = Vector2(185, 934)
+color = Color(0, 1, 0, 1)
+polygon = PackedVector2Array(43, -1, 313, -45, 446, -27, 582, -51, 793, 11, 1145, -13, 1580, -188, 1736, -163, 1737, 109, -261, 130, -265, -170, -153, -151, -35, -98)
+
+[node name="Simulation" type="Node2D" parent="." node_paths=PackedStringArray("sharedArea")]
+script = ExtResource("5_1g3hr")
+waterParticleImage = ExtResource("6_xnkpf")
+sharedArea = NodePath("SharedArea")
+
+[node name="SharedArea" type="Area2D" parent="Simulation"]
+
+[connection signal="player_turn_end" from="PlayerTank" to="." method="_on_player_tank_player_turn_end"]
+[connection signal="ai_turn_end" from="AITank" to="." method="_on_ai_tank_ai_turn_end"]
+[connection signal="body_shape_entered" from="Simulation/SharedArea" to="Simulation" method="OnParticleCollision"]

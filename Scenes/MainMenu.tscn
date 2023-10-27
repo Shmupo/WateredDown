@@ -1,0 +1,327 @@
+[gd_scene load_steps=32 format=3 uid="uid://cyn8p7peof42"]
+
+[ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_lbcu7"]
+[ext_resource type="Texture2D" uid="uid://dyntmtw6xado7" path="res://Art/OceanWave.png" id="2_tf1nu"]
+[ext_resource type="Texture2D" uid="uid://ddhr87kkl67ee" path="res://Art/Title.png" id="3_kwpi3"]
+[ext_resource type="Theme" uid="uid://b41slatf1eoto" path="res://ButtonTheme1.tres" id="4_irekw"]
+[ext_resource type="Theme" uid="uid://bcynd8ic2mwtw" path="res://ButtonTheme3.tres" id="5_krht3"]
+[ext_resource type="Theme" uid="uid://c3oh0jaf3d2s3" path="res://ButtonTheme2.tres" id="6_x35vm"]
+[ext_resource type="Script" path="res://Scripts/ExitButton.gd" id="7_am6d0"]
+[ext_resource type="AudioStream" uid="uid://yynh604mwc7b" path="res://Sound/rsercrwV.wav" id="8_054ok"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_endv0"]
+atlas = ExtResource("2_tf1nu")
+region = Rect2(0, 0, 192, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0j8n2"]
+atlas = ExtResource("2_tf1nu")
+region = Rect2(192, 0, 192, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7o5sl"]
+atlas = ExtResource("2_tf1nu")
+region = Rect2(384, 0, 192, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c8h4x"]
+atlas = ExtResource("2_tf1nu")
+region = Rect2(576, 0, 192, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0shod"]
+atlas = ExtResource("2_tf1nu")
+region = Rect2(768, 0, 192, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sr222"]
+atlas = ExtResource("2_tf1nu")
+region = Rect2(960, 0, 192, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cn8m3"]
+atlas = ExtResource("2_tf1nu")
+region = Rect2(1152, 0, 192, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3likr"]
+atlas = ExtResource("2_tf1nu")
+region = Rect2(1344, 0, 192, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7xo4t"]
+atlas = ExtResource("2_tf1nu")
+region = Rect2(1536, 0, 192, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e0mml"]
+atlas = ExtResource("2_tf1nu")
+region = Rect2(1728, 0, 192, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l12ca"]
+atlas = ExtResource("2_tf1nu")
+region = Rect2(1920, 0, 192, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_21jv0"]
+atlas = ExtResource("2_tf1nu")
+region = Rect2(2112, 0, 192, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nm8sf"]
+atlas = ExtResource("2_tf1nu")
+region = Rect2(2304, 0, 192, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xt1dc"]
+atlas = ExtResource("2_tf1nu")
+region = Rect2(2496, 0, 192, 108)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vvmre"]
+atlas = ExtResource("2_tf1nu")
+region = Rect2(2688, 0, 192, 108)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pse3t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_endv0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0j8n2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7o5sl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c8h4x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0shod")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sr222")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cn8m3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3likr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7xo4t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e0mml")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l12ca")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_21jv0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nm8sf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xt1dc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vvmre")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1jsx0"]
+atlas = ExtResource("3_kwpi3")
+region = Rect2(0, 0, 93, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rm3et"]
+atlas = ExtResource("3_kwpi3")
+region = Rect2(93, 0, 93, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ocfo"]
+atlas = ExtResource("3_kwpi3")
+region = Rect2(186, 0, 93, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ild4"]
+atlas = ExtResource("3_kwpi3")
+region = Rect2(279, 0, 93, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wrptf"]
+atlas = ExtResource("3_kwpi3")
+region = Rect2(372, 0, 93, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a21q6"]
+atlas = ExtResource("3_kwpi3")
+region = Rect2(465, 0, 93, 40)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ul21l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1jsx0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rm3et")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ocfo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ild4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wrptf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a21q6")
+}],
+"loop": true,
+"name": &"Title",
+"speed": 5.0
+}]
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_lbcu7")
+
+[node name="BackgroundSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(960, 540)
+scale = Vector2(10, 10)
+sprite_frames = SubResource("SpriteFrames_pse3t")
+frame_progress = 0.417764
+
+[node name="MainMenuPage" type="Node2D" parent="."]
+
+[node name="Title" type="AnimatedSprite2D" parent="MainMenuPage"]
+position = Vector2(958, 187)
+scale = Vector2(8.33926, 7.65)
+sprite_frames = SubResource("SpriteFrames_ul21l")
+animation = &"Title"
+
+[node name="StartButton" type="Button" parent="MainMenuPage"]
+offset_left = 820.0
+offset_top = 397.0
+offset_right = 1089.0
+offset_bottom = 495.0
+focus_mode = 0
+theme = ExtResource("4_irekw")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 32
+text = "Start
+"
+
+[node name="OptionButton" type="Button" parent="MainMenuPage"]
+offset_left = 839.0
+offset_top = 533.0
+offset_right = 1071.0
+offset_bottom = 636.0
+theme = ExtResource("5_krht3")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 32
+text = "Settings"
+
+[node name="ExitButton" type="Button" parent="MainMenuPage"]
+offset_left = 819.0
+offset_top = 672.0
+offset_right = 1088.0
+offset_bottom = 770.0
+focus_mode = 0
+theme = ExtResource("6_x35vm")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 32
+text = "Exit
+"
+script = ExtResource("7_am6d0")
+
+[node name="LevelSelectPage" type="Node2D" parent="MainMenuPage"]
+position = Vector2(1920, 0)
+
+[node name="BackButton" type="Button" parent="MainMenuPage/LevelSelectPage"]
+offset_left = 35.0
+offset_top = 27.0
+offset_right = 91.0
+offset_bottom = 58.0
+text = "Back"
+
+[node name="Level1" type="Button" parent="MainMenuPage/LevelSelectPage"]
+offset_left = 155.0
+offset_top = 136.0
+offset_right = 236.0
+offset_bottom = 167.0
+text = "Forest
+"
+
+[node name="SettingsPage" type="Node2D" parent="MainMenuPage"]
+position = Vector2(-1920, 0)
+
+[node name="BackButton" type="Button" parent="MainMenuPage/SettingsPage"]
+offset_left = 35.0
+offset_top = 27.0
+offset_right = 91.0
+offset_bottom = 58.0
+text = "Back"
+
+[node name="SoundSlider" type="HSlider" parent="MainMenuPage/SettingsPage"]
+offset_left = 128.0
+offset_top = 119.0
+offset_right = 575.0
+offset_bottom = 138.0
+value = 75.0
+
+[node name="SoundSliderLabel" type="RichTextLabel" parent="MainMenuPage/SettingsPage/SoundSlider"]
+layout_mode = 0
+offset_left = 271.0
+offset_top = -22.0
+offset_right = 441.0
+offset_bottom = 3.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+text = "Sound Effects Volume
+"
+
+[node name="PressureSlider" type="HSlider" parent="MainMenuPage/SettingsPage"]
+offset_left = 128.0
+offset_top = 230.0
+offset_right = 575.0
+offset_bottom = 249.0
+max_value = 2.0
+step = 0.1
+value = 1.0
+
+[node name="PressureSliderLabel" type="RichTextLabel" parent="MainMenuPage/SettingsPage/PressureSlider"]
+layout_mode = 0
+offset_left = 249.0
+offset_top = -22.0
+offset_right = 441.0
+offset_bottom = 3.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+text = "Pressure Force Amount
+"
+
+[node name="Viscosity Force Amount" type="HSlider" parent="MainMenuPage/SettingsPage"]
+offset_left = 129.0
+offset_top = 291.0
+offset_right = 576.0
+offset_bottom = 310.0
+max_value = 2.0
+step = 0.1
+value = 1.0
+
+[node name="ViscositySliderLabel" type="RichTextLabel" parent="MainMenuPage/SettingsPage/Viscosity Force Amount"]
+layout_mode = 0
+offset_left = 249.0
+offset_top = -22.0
+offset_right = 441.0
+offset_bottom = 3.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+text = "Viscosity Force Amount
+"
+
+[node name="SelectSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_054ok")
+volume_db = -20.0
+
+[connection signal="pressed" from="MainMenuPage/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="MainMenuPage/OptionButton" to="." method="_on_setting_button_pressed"]
+[connection signal="pressed" from="MainMenuPage/LevelSelectPage/BackButton" to="." method="back_button_pressed"]
+[connection signal="pressed" from="MainMenuPage/LevelSelectPage/Level1" to="." method="_on_level_1_pressed"]
+[connection signal="pressed" from="MainMenuPage/SettingsPage/BackButton" to="." method="back_button_pressed"]
+[connection signal="value_changed" from="MainMenuPage/SettingsPage/SoundSlider" to="." method="_on_sound_slider_value_changed"]
+[connection signal="value_changed" from="MainMenuPage/SettingsPage/PressureSlider" to="." method="_on_pressure_slider_value_changed"]
+[connection signal="value_changed" from="MainMenuPage/SettingsPage/Viscosity Force Amount" to="." method="_on_viscosity_force_amount_value_changed"]

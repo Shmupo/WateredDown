@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://biumh7fgs48f"]
+
+[ext_resource type="PackedScene" uid="uid://crrcooblix8tm" path="res://TestScenes/Tank.tscn" id="1_bnt00"]
+[ext_resource type="Script" path="res://Scripts/Main.gd" id="1_j7x76"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g8oqo"]
+size = Vector2(1920, 88)
+
+[node name="Main" type="Node"]
+script = ExtResource("1_j7x76")
+
+[node name="PlayerTank" parent="." instance=ExtResource("1_bnt00")]
+speed = null
+
+[node name="TankStartPosition" type="Marker2D" parent="."]
+position = Vector2(330, 711)
+
+[node name="StartTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2(960, 1036)
+disable_mode = 1
+freeze = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+shape = SubResource("RectangleShape2D_g8oqo")
+debug_color = Color(0.831373, 0.392157, 0, 0.419608)

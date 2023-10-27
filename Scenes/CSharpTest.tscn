@@ -1,0 +1,301 @@
+[gd_scene load_steps=47 format=3 uid="uid://by643jbljhoq3"]
+
+[ext_resource type="Script" path="res://Scripts/Start.gd" id="1_dy0p8"]
+[ext_resource type="PackedScene" uid="uid://crrcooblix8tm" path="res://Scenes/Tank.tscn" id="2_h41kq"]
+[ext_resource type="PackedScene" uid="uid://p1h3hbb4lbya" path="res://Scenes/GUI.tscn" id="2_v4uc2"]
+[ext_resource type="Script" path="res://CScripts/SimpleWater.cs" id="6_6m4iq"]
+[ext_resource type="Script" path="res://Scripts/Terrain.gd" id="6_xborp"]
+[ext_resource type="Texture2D" uid="uid://bexy6a0lfkg7u" path="res://Art/WaterParticle.png" id="6_xnkpf"]
+[ext_resource type="PackedScene" uid="uid://dktr54jae3pbo" path="res://Scenes/AITank.tscn" id="8_bbi2w"]
+[ext_resource type="Script" path="res://addons/rmsmartshape/shapes/shape_closed.gd" id="9_pnu2y"]
+[ext_resource type="Script" path="res://addons/rmsmartshape/vertex_properties.gd" id="10_f8mcr"]
+[ext_resource type="Script" path="res://addons/rmsmartshape/materials/edge_material.gd" id="10_sp6iw"]
+[ext_resource type="Script" path="res://addons/rmsmartshape/shapes/point.gd" id="11_tfaro"]
+[ext_resource type="Texture2D" uid="uid://b3r3n2r21404r" path="res://Art/ForestTile/DirtPolygon/GrassOuter.png" id="11_w877l"]
+[ext_resource type="Script" path="res://addons/rmsmartshape/shapes/point_array.gd" id="12_33ow3"]
+[ext_resource type="Script" path="res://addons/rmsmartshape/normal_range.gd" id="12_gg8w8"]
+[ext_resource type="Script" path="res://addons/rmsmartshape/materials/edge_material_metadata.gd" id="13_cyhhg"]
+[ext_resource type="Texture2D" uid="uid://caciocma31pjm" path="res://Art/ForestTile/DirtPolygon/DirtInner.png" id="14_i3bft"]
+[ext_resource type="Script" path="res://addons/rmsmartshape/materials/shape_material.gd" id="14_n3oe1"]
+
+[sub_resource type="Resource" id="Resource_ht7jl"]
+script = ExtResource("10_f8mcr")
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id="Resource_qq0uy"]
+script = ExtResource("11_tfaro")
+position = Vector2(1246.92, 778.178)
+point_in = Vector2(0, 0)
+point_out = Vector2(0, 0)
+properties = SubResource("Resource_ht7jl")
+
+[sub_resource type="Resource" id="Resource_fr2hr"]
+script = ExtResource("10_f8mcr")
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id="Resource_obdc4"]
+script = ExtResource("11_tfaro")
+position = Vector2(-304.466, 721.915)
+point_in = Vector2(0, 0)
+point_out = Vector2(0, 0)
+properties = SubResource("Resource_fr2hr")
+
+[sub_resource type="Resource" id="Resource_sj4t5"]
+script = ExtResource("10_f8mcr")
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id="Resource_6cxlr"]
+script = ExtResource("11_tfaro")
+position = Vector2(1669.79, 973.845)
+point_in = Vector2(0, 0)
+point_out = Vector2(0, 0)
+properties = SubResource("Resource_sj4t5")
+
+[sub_resource type="Resource" id="Resource_ys0ld"]
+script = ExtResource("10_f8mcr")
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id="Resource_ekk3x"]
+script = ExtResource("11_tfaro")
+position = Vector2(-4.61331, 798.178)
+point_in = Vector2(0, 0)
+point_out = Vector2(0, 0)
+properties = SubResource("Resource_ys0ld")
+
+[sub_resource type="Resource" id="Resource_rcxr6"]
+script = ExtResource("10_f8mcr")
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id="Resource_g5a6j"]
+script = ExtResource("11_tfaro")
+position = Vector2(1686.61, 843.67)
+point_in = Vector2(0, 0)
+point_out = Vector2(0, 0)
+properties = SubResource("Resource_rcxr6")
+
+[sub_resource type="Resource" id="Resource_fjmqb"]
+script = ExtResource("10_f8mcr")
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id="Resource_o0nx5"]
+script = ExtResource("11_tfaro")
+position = Vector2(-295.004, 968.032)
+point_in = Vector2(0, 0)
+point_out = Vector2(0, 0)
+properties = SubResource("Resource_fjmqb")
+
+[sub_resource type="Resource" id="Resource_rl336"]
+script = ExtResource("10_f8mcr")
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id="Resource_3g6ef"]
+script = ExtResource("11_tfaro")
+position = Vector2(1246.92, 778.178)
+point_in = Vector2(0, 0)
+point_out = Vector2(0, 0)
+properties = SubResource("Resource_rl336")
+
+[sub_resource type="Resource" id="Resource_82o6j"]
+script = ExtResource("10_f8mcr")
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id="Resource_0r843"]
+script = ExtResource("11_tfaro")
+position = Vector2(1676.73, 726.766)
+point_in = Vector2(0, 0)
+point_out = Vector2(0, 0)
+properties = SubResource("Resource_82o6j")
+
+[sub_resource type="Resource" id="Resource_oggco"]
+script = ExtResource("10_f8mcr")
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id="Resource_trr82"]
+script = ExtResource("11_tfaro")
+position = Vector2(750.057, 786.007)
+point_in = Vector2(0, 0)
+point_out = Vector2(0, 0)
+properties = SubResource("Resource_oggco")
+
+[sub_resource type="Resource" id="Resource_4msin"]
+script = ExtResource("10_f8mcr")
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id="Resource_nljj4"]
+script = ExtResource("11_tfaro")
+position = Vector2(126.035, 870.801)
+point_in = Vector2(0, 0)
+point_out = Vector2(0, 0)
+properties = SubResource("Resource_4msin")
+
+[sub_resource type="Resource" id="Resource_cjqlg"]
+script = ExtResource("10_f8mcr")
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id="Resource_d7cw8"]
+script = ExtResource("11_tfaro")
+position = Vector2(437.596, 814.986)
+point_in = Vector2(0, 0)
+point_out = Vector2(0, 0)
+properties = SubResource("Resource_cjqlg")
+
+[sub_resource type="Resource" id="Resource_cj1e8"]
+script = ExtResource("10_f8mcr")
+texture_idx = 0
+flip = false
+width = 1.0
+
+[sub_resource type="Resource" id="Resource_crh8d"]
+script = ExtResource("11_tfaro")
+position = Vector2(321.904, 872.321)
+point_in = Vector2(0, 0)
+point_out = Vector2(0, 0)
+properties = SubResource("Resource_cj1e8")
+
+[sub_resource type="Resource" id="Resource_6aekx"]
+script = ExtResource("12_33ow3")
+_points = {
+0: SubResource("Resource_qq0uy"),
+1: SubResource("Resource_obdc4"),
+4: SubResource("Resource_6cxlr"),
+5: SubResource("Resource_ekk3x"),
+6: SubResource("Resource_g5a6j"),
+7: SubResource("Resource_o0nx5"),
+9: SubResource("Resource_3g6ef"),
+10: SubResource("Resource_0r843"),
+11: SubResource("Resource_trr82"),
+13: SubResource("Resource_nljj4"),
+14: SubResource("Resource_d7cw8"),
+15: SubResource("Resource_crh8d")
+}
+_point_order = Array[int]([9, 10, 6, 4, 7, 1, 5, 13, 15, 14, 11, 0])
+_constraints = {
+Array[int]([9, 0]): 15
+}
+_next_key = 16
+_material_overrides = {}
+
+[sub_resource type="Resource" id="Resource_bv7rx"]
+script = ExtResource("10_sp6iw")
+textures = Array[Texture2D]([ExtResource("11_w877l")])
+textures_corner_outer = Array[Texture2D]([])
+textures_corner_inner = Array[Texture2D]([])
+textures_taper_left = Array[Texture2D]([])
+textures_taper_right = Array[Texture2D]([])
+randomize_texture = false
+use_corner_texture = false
+use_taper_texture = false
+fit_mode = 1
+
+[sub_resource type="Resource" id="Resource_iflnn"]
+script = ExtResource("12_gg8w8")
+begin = 45.0
+distance = 90.0
+edgeRendering = Vector2(0, 0)
+
+[sub_resource type="Resource" id="Resource_fd1lj"]
+script = ExtResource("13_cyhhg")
+edge_material = SubResource("Resource_bv7rx")
+normal_range = SubResource("Resource_iflnn")
+weld = true
+render = true
+z_index = 1
+z_as_relative = true
+offset = -0.2
+
+[sub_resource type="Resource" id="Resource_r5kly"]
+script = ExtResource("14_n3oe1")
+_edge_meta_materials = Array[ExtResource("13_cyhhg")]([SubResource("Resource_fd1lj")])
+fill_textures = Array[Texture2D]([ExtResource("14_i3bft")])
+fill_texture_z_index = 0
+fill_texture_show_behind_parent = false
+fill_mesh_offset = 0.0
+render_offset = -0.5
+
+[node name="Main" type="Node"]
+script = ExtResource("1_dy0p8")
+
+[node name="GUI" parent="." instance=ExtResource("2_v4uc2")]
+offset_bottom = -806.0
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Simulation" type="Node2D" parent="."]
+script = ExtResource("6_6m4iq")
+waterParticleImage = ExtResource("6_xnkpf")
+
+[node name="DestructableTerrain" type="Node2D" parent="." node_paths=PackedStringArray("shapeList", "destructablePolyList", "polygonList")]
+script = ExtResource("6_xborp")
+shapeList = [NodePath("SS2D_Shape_Closed")]
+destructablePolyList = [NodePath("DestructablePoly")]
+polygonList = [NodePath("Polygon2D")]
+
+[node name="DestructablePoly" type="Polygon2D" parent="DestructableTerrain"]
+color = Color(0.811765, 0.627451, 0.00784314, 1)
+polygon = PackedVector2Array(775, 649, 976, 548, 986, 940, 757, 949)
+
+[node name="Polygon2D" type="Polygon2D" parent="DestructableTerrain"]
+texture_filter = 3
+texture_repeat = 2
+position = Vector2(235, 1293)
+color = Color(0, 1, 0, 1)
+polygon = PackedVector2Array(119, -20, 313, -45, 446, -27, 582, -51, 793, 11, 1145, -13, 1580, -188, 1736, -163, 1737, 109, -261, 130, -265, -170, -153, -151, -35, -98)
+
+[node name="SS2D_Shape_Closed" type="Node2D" parent="DestructableTerrain"]
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(272, 123)
+script = ExtResource("9_pnu2y")
+_points = SubResource("Resource_6aekx")
+shape_material = SubResource("Resource_r5kly")
+
+[node name="PlayerTank" parent="." node_paths=PackedStringArray("simulator") instance=ExtResource("2_h41kq")]
+position = Vector2(357, 320)
+simulator = NodePath("../Simulation")
+
+[node name="AITank" parent="." instance=ExtResource("8_bbi2w")]
+position = Vector2(1506, 330)
+
+[node name="Tank1StartPosition" type="Marker2D" parent="."]
+position = Vector2(246, 862)
+
+[node name="Tank2StartPosition" type="Marker2D" parent="."]
+position = Vector2(1666, 825)
+
+[node name="MainMenuButton" type="Button" parent="."]
+offset_left = 1811.0
+offset_top = 16.0
+offset_right = 1907.0
+offset_bottom = 47.0
+text = "Main Menu"
+
+[connection signal="ParticleCollision" from="Simulation" to="DestructableTerrain" method="_on_simulation_particle_collision"]
+[connection signal="fuel_level_change" from="PlayerTank" to="." method="setPlayerFuelBar"]
+[connection signal="player_turn_end" from="PlayerTank" to="." method="_on_player_tank_player_turn_end"]
+[connection signal="water_level_change" from="PlayerTank" to="." method="setPlayerWaterBar"]
+[connection signal="ai_turn_end" from="AITank" to="." method="_on_ai_tank_ai_turn_end"]
+[connection signal="water_level_change" from="AITank" to="." method="checkAiWaterBar"]
+[connection signal="pressed" from="MainMenuButton" to="." method="_on_main_menu_button_pressed"]

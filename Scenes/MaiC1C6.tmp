@@ -1,0 +1,91 @@
+[gd_scene load_steps=9 format=3 uid="uid://biumh7fgs48f"]
+
+[ext_resource type="PackedScene" uid="uid://crrcooblix8tm" path="res://Scenes/Tank.tscn" id="1_bnt00"]
+[ext_resource type="Script" path="res://Scripts/Main.gd" id="1_dq2us"]
+[ext_resource type="Texture2D" uid="uid://tfwr43577u5g" path="res://Art/TestTexture.png" id="3_wrlsx"]
+[ext_resource type="Texture2D" uid="uid://d376jqhqxdnf1" path="res://Art/GrassPattern.png" id="4_po17d"]
+[ext_resource type="Script" path="res://Scripts/Simulation.gd" id="5_jj85x"]
+[ext_resource type="Script" path="res://Scripts/Terrain.gd" id="6_fywde"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bbss2"]
+size = Vector2(175, 1105)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g8oqo"]
+size = Vector2(1920, 88)
+
+[node name="Main" type="Node"]
+script = ExtResource("1_dq2us")
+
+[node name="PlayerTank" parent="." node_paths=PackedStringArray("simulator") instance=ExtResource("1_bnt00")]
+collision_mask = 4
+simulator = NodePath("../FluidLayer/Simulation")
+
+[node name="TankStartPosition" type="Marker2D" parent="."]
+position = Vector2(171, 896)
+
+[node name="Walls" type="CanvasLayer" parent="."]
+
+[node name="BottomWall2" type="RigidBody2D" parent="Walls"]
+position = Vector2(1920, 418)
+disable_mode = 1
+collision_layer = 4
+collision_mask = 3
+freeze = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/BottomWall2"]
+position = Vector2(-86.5, 118.5)
+shape = SubResource("RectangleShape2D_bbss2")
+
+[node name="Sprite2D" type="Sprite2D" parent="Walls/BottomWall2"]
+texture_filter = 1
+texture_repeat = 2
+position = Vector2(-87, 115.047)
+scale = Vector2(21.2324, 137.238)
+texture = ExtResource("3_wrlsx")
+
+[node name="BottomWall" type="RigidBody2D" parent="Walls"]
+position = Vector2(960, 1036)
+disable_mode = 1
+collision_layer = 4
+collision_mask = 3
+freeze = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/BottomWall"]
+shape = SubResource("RectangleShape2D_g8oqo")
+debug_color = Color(0.831373, 0.392157, 0, 0.419608)
+
+[node name="Sprite2D" type="Sprite2D" parent="Walls/BottomWall"]
+texture_filter = 1
+texture_repeat = 2
+scale = Vector2(6.3267, 5.55036)
+texture = ExtResource("4_po17d")
+region_enabled = true
+region_rect = Rect2(-128, 9, 317, 16)
+
+[node name="FluidLayer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="Simulation" type="Node" parent="FluidLayer"]
+script = ExtResource("5_jj85x")
+
+[node name="DestructableTerrain" type="Node2D" parent="." node_paths=PackedStringArray("polygonList")]
+script = ExtResource("6_fywde")
+polygonList = [NodePath("Polygon1"), NodePath("Polygon2"), NodePath("Polygon3")]
+
+[node name="Polygon1" type="Polygon2D" parent="DestructableTerrain"]
+texture_repeat = 2
+position = Vector2(1117, 374)
+texture = ExtResource("4_po17d")
+polygon = PackedVector2Array(-68, -250, 163, -65, 256, 60, 120, 112, -190, 268, -71, 65, -172, -105)
+
+[node name="Polygon2" type="Polygon2D" parent="DestructableTerrain"]
+position = Vector2(658, 679)
+color = Color(1, 0.486275, 1, 1)
+polygon = PackedVector2Array(94, -4, 36, 86, 218, 110, 218, 0)
+
+[node name="Polygon3" type="Polygon2D" parent="DestructableTerrain"]
+position = Vector2(316, 761)
+color = Color(1, 0.227451, 0, 1)
+polygon = PackedVector2Array(416, 118, 282, 90, 143, 125, -41, 220, -266, 217, -263, 357, 416, 358)
+
+[node name="GroundBodies" type="Node" parent="DestructableTerrain" groups=["Terrain"]]

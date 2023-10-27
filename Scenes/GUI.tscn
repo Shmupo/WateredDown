@@ -1,0 +1,51 @@
+[gd_scene load_steps=2 format=3 uid="uid://p1h3hbb4lbya"]
+
+[ext_resource type="Texture2D" uid="uid://b7kc5ffrv536e" path="res://Art/TankPanel.png" id="1_kd4pr"]
+
+[node name="GUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TurnColor" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 77.0
+offset_top = 30.0
+offset_right = 121.0
+offset_bottom = 76.0
+color = Color(0, 1, 0, 1)
+
+[node name="PlayerWaterLevel" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 9.0
+offset_right = 54.0
+offset_bottom = 216.0
+fill_mode = 3
+show_percentage = false
+
+[node name="PlayerFuelLevel" type="ProgressBar" parent="."]
+layout_mode = 0
+offset_left = 74.0
+offset_top = 124.0
+offset_right = 101.0
+offset_bottom = 196.0
+theme_override_constants/outline_size = 2
+fill_mode = 3
+show_percentage = false
+
+[node name="Panel" type="Sprite2D" parent="."]
+position = Vector2(74, 144)
+scale = Vector2(4.5, 4.5)
+texture = ExtResource("1_kd4pr")
+
+[node name="CheckBox" type="CheckBox" parent="."]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 291.0
+offset_right = 161.0
+offset_bottom = 322.0
+text = "See Inside Turret"
