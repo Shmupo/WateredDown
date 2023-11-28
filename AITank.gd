@@ -9,6 +9,7 @@ var cannon: Node2D
 var cannonTip: Node2D
 var bodyAnimation: AnimatedSprite2D
 var cannonAnimation: AnimatedSprite2D
+var splashAnim: CPUParticles2D
 
 signal ai_turn_end
 signal water_level_change
@@ -47,6 +48,7 @@ func _ready() -> void:
 	cannonAnimation = $Cannon/CannonAnimatedSprite
 	cannon = $Cannon
 	cannonTip = $Cannon/CannonTip
+	splashAnim = $WaterSplash
 	
 	fireSound = $FireSound
 	engineSound = $EngineSound
@@ -63,8 +65,6 @@ func loadVolumeLevel() -> void:
 		
 		fireSound.volume_db = soundLevel - 75
 		engineSound.volume_db = soundLevel - 75
-		
-		print("Fire sound level at ", fireSound.volume_db)
 
 func start(pos) -> void:
 	# setting start position
@@ -156,6 +156,7 @@ func _process(delta) -> void:
 func _on_water_area_body_shape_entered(_body_rid, _body, _body_shape_index, _local_shape_index) -> void:
 	particlesContained += 1
 	water_level_change.emit()
+	splashAnim.emitting = true
 	
 func _on_water_area_body_shape_exited(_body_rid, _body, _body_shape_index, _local_shape_index) -> void:
 	particlesContained -= 1

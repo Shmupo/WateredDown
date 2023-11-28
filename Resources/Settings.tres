@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="SettingsValues" load_steps=2 format=3]
 
-[ext_resource type="Script" path="res://Scripts/globals.gd" id="1_jswh1"]
+[ext_resource type="Script" path="res://Scripts/globals.gd" id="1_1cw2r"]
 
 [resource]
-script = ExtResource("1_jswh1")
-pressureFactor = 1.0
-viscosityFactor = 1.0
-soundEffectVolume = 51
+script = ExtResource("1_1cw2r")
+pressureFactor = 0.1
+viscosityFactor = 2.0
+soundEffectVolume = 75

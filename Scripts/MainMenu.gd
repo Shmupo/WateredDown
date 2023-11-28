@@ -13,6 +13,7 @@ var globals: SettingsValues = SettingsValues.new()
 func _ready() -> void:
 	selectSound = $SelectSound
 	menuPage = $MainMenuPage
+	$MainMenuPage/Title.play()
 	target = Vector2(0, 0)
 	selectSound.volume_db = -20
 	$BackgroundSprite.play()
@@ -37,7 +38,7 @@ func _on_level_1_pressed() -> void:
 	selectSound.play()
 	get_tree().change_scene_to_file("res://Scenes/ForestLevel1.tscn")
 
-func _on_sound_slider_value_changed(value: float) -> void:
+func _on_sound_slider_value_changed(value: int) -> void:
 	globals.soundEffectVolume = value
 	print("Sound set to ", globals.soundEffectVolume)
 	ResourceSaver.save(globals, "res://Resources/Settings.tres")

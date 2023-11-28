@@ -30,6 +30,8 @@ public partial class SimpleWater : Node2D
 
     List<Particle> sharedData = new List<Particle>();
 
+    Task[] tasks = new Task[2];
+
     // water particle clipping shape, not used here
     Vector2[] waterClip = new Vector2[8]
     {
@@ -72,7 +74,7 @@ public partial class SimpleWater : Node2D
             RS.CanvasItemSetTransform(pair.Item2, trans);
 
             // cehck if particle is out of screen, if so, queue to remove
-            // out of screen bounds, with a little buffer added
+            // out of screen bounds, with a 10 pixel buffer added
             if (trans.Origin.X < -10 || trans.Origin.X > 1930 || trans.Origin.Y < -10)
             {
                 particlesToRemove.Add(particles.IndexOf(pair));
@@ -103,13 +105,18 @@ public partial class SimpleWater : Node2D
 
     public override void _ExitTree()
     {
+        SetPhysicsProcess(false);
+        Task.WaitAll();
+
         // remove all particles from PhysicsServer
-        for (int i = particles.Count - 1; i >= 0; i--)
-        {
-            PS.FreeRid(particles[particlesToRemove[i]].Item1);
-            RS.FreeRid(particles[particlesToRemove[i]].Item2);
-            particles.Clear();
-        }
+    // Reverse iterate to safely remove elements
+    for (int i = particles.Count - 1; i >= 0; i--)
+    {
+        var pair = particles[i];
+        PS.FreeRid(pair.Item1);
+        RS.FreeRid(pair.Item2);
+        particles.RemoveAt(i);
+    }
     }
 
     public void SetModifiers(float pressMod, float viscMod)

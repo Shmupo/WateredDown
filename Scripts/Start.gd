@@ -70,6 +70,7 @@ func checkAiWaterBar() -> void:
 			endGame(true)
 		
 func endGame(playerWin: bool) -> void:
+	set_process(false)
 	gameOver = true
 	
 	playerTank.turn = false
@@ -112,6 +113,8 @@ func _process(_delta) -> void:
 			playerTank.fuel = 1000
 			playerFuelBar.value = playerTank.fuel
 			playerTurn = false
+			
+	checkRotations()
 
 func _on_player_tank_player_turn_end() -> void:
 	timer.start(2)
@@ -125,5 +128,17 @@ func _on_ai_tank_ai_turn_end() -> void:
 func _on_main_menu_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/MainMenu.tscn")
 	
-func showInsidePlayer(pressed: bool):
+func showInsidePlayer(pressed: bool) -> void:
 	playerTank.turretVisibility(pressed)
+
+# ends game if one tank rotates too much
+func checkRotations() -> void:
+	# Get the current rotation in degrees
+	var playerRotation: float = playerTank.rotation_degrees
+	var compRotation: float = botTank.rotation_degrees
+
+	# Check if the rotation exceeds the maximum threshold
+	if abs(playerRotation) > 100:
+		endGame(0)
+	if abs(compRotation) > 100:
+		endGame(1)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://dktr54jae3pbo"]
+[gd_scene load_steps=35 format=3 uid="uid://dktr54jae3pbo"]
 
 [ext_resource type="Texture2D" uid="uid://w22wersld3nv" path="res://Art/Tank2/Tank2Cannon.png" id="1_fhkyy"]
 [ext_resource type="Script" path="res://AITank.gd" id="1_hdjdu"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://cn74ml36yc5id" path="res://Art/Tank2/Tank2Wheel.png" id="5_tvpig"]
 [ext_resource type="AudioStream" uid="uid://3gi3qht6kg3j" path="res://Sound/random.wav" id="7_wl4kw"]
 [ext_resource type="AudioStream" uid="uid://bckecwrcpsxs" path="res://Sound/EngineRunning.wav" id="8_rw6wf"]
+[ext_resource type="Texture2D" uid="uid://bexy6a0lfkg7u" path="res://Art/WaterParticle.png" id="9_mojxw"]
+[ext_resource type="Script" path="res://Scenes/Tracks.gd" id="10_yv53s"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4q6cw"]
 atlas = ExtResource("1_fhkyy")
@@ -336,6 +338,34 @@ pitch_scale = 2.0
 [node name="EngineSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("8_rw6wf")
 pitch_scale = 1.5
+
+[node name="WaterSplash" type="CPUParticles2D" parent="."]
+position = Vector2(0, -44)
+rotation = -1.5708
+emitting = false
+amount = 10
+lifetime = 0.5
+one_shot = true
+speed_scale = 0.5
+explosiveness = 1.0
+lifetime_randomness = 0.25
+texture = ExtResource("9_mojxw")
+emission_shape = 3
+emission_rect_extents = Vector2(1, 15)
+initial_velocity_min = 80.0
+initial_velocity_max = 200.0
+angle_max = 180.0
+scale_amount_min = 0.2
+scale_amount_max = 0.8
+
+[node name="Tracks" type="Line2D" parent="." node_paths=PackedStringArray("rWheel", "rmWheel", "fmWheel", "fWheel")]
+width = 4.0
+default_color = Color(0, 0, 0, 1)
+script = ExtResource("10_yv53s")
+rWheel = NodePath("../RearWheel/TankWheel")
+rmWheel = NodePath("../RearMidWheel/TankWheel")
+fmWheel = NodePath("../FrontMidWheel/TankWheel")
+fWheel = NodePath("../FrontWheel/TankWheel")
 
 [connection signal="body_shape_entered" from="WaterArea" to="." method="_on_water_area_body_shape_entered"]
 [connection signal="body_shape_exited" from="WaterArea" to="." method="_on_water_area_body_shape_exited"]

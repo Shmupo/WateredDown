@@ -19,6 +19,7 @@ var cannonTip: Node2D
 var bodyAnimation: AnimatedSprite2D
 var cannonAnimation: AnimatedSprite2D
 var trajectory: Line2D
+var splashAnim: CPUParticles2D
 
 var turretSprite: AnimatedSprite2D
 var turretInternalSprite: AnimatedSprite2D
@@ -46,6 +47,7 @@ func _ready():
 	cannon = $Cannon
 	cannonTip = $Cannon/CannonTip
 	trajectory = $Cannon/CannonTip/Trajectory
+	splashAnim = $WaterSplash
 	
 	fireSound = $FireSound
 	engineSound = $EngineSound
@@ -150,6 +152,7 @@ func _process(_delta) -> void:
 func _on_water_area_body_shape_entered(_body_rid, _body, _body_shape_index, _local_shape_index) -> void:
 	particlesContained += 1
 	water_level_change.emit()
+	splashAnim.emitting = true;
 	
 func _on_water_area_body_shape_exited(_body_rid, _body, _body_shape_index, _local_shape_index) -> void:
 	particlesContained -= 1

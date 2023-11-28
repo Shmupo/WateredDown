@@ -7,8 +7,6 @@ using Vector2 = Godot.Vector2;
 using SpatialHashGrid;
 using WaterParticle;
 
-// SPH physics reference : https://github.com/AJTech2002/Smoothed-Particle-Hydrodynamics/blob/main/Assets/Scripts/SPH.cs
-
 namespace SPHaddon
 {
 	public partial class ParticleSimulation : Node2D
