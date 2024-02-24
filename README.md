@@ -1,5 +1,5 @@
 # WateredDown
-Godot tank game with smoothed particle physics.
+Godot tank game with a physics engine modeled after smoothed particle physics.
 
 Video game made using Godot Mono 4.1.1 for Windows OS
 
